@@ -78,6 +78,7 @@ export default class ViewerCore extends React.Component<ViewerProps, ViewerCoreS
     this.handleKeydown = this.handleKeydown.bind(this);
     this.handleScaleX = this.handleScaleX.bind(this);
     this.handleScaleY = this.handleScaleY.bind(this);
+    this.handleDownload = this.handleDownload.bind(this);
     this.getImageCenterXY = this.getImageCenterXY.bind(this);
 
     this.setContainerWidthHeight();
@@ -217,6 +218,21 @@ export default class ViewerCore extends React.Component<ViewerProps, ViewerCoreS
     });
   }
 
+  handleDownload() {
+    const images = this.props.images;
+    const activeIndex = this.props.activeIndex;
+    const image = images[activeIndex] || images[0];
+    const aLink = Object.assign(document.createElement('a'), {
+      href: image.src,
+      download: '',
+      style: {
+        display: 'none',
+      },
+    });
+    document.body.appendChild(aLink);
+    aLink.click();
+  }
+
   handleAction(type: ActionType) {
     switch (type) {
       case ActionType.prev:
@@ -252,6 +268,8 @@ export default class ViewerCore extends React.Component<ViewerProps, ViewerCoreS
       case ActionType.scaleY:
         this.handleScaleY(this.state.scaleY === 1 ? -1 : 1);
         break;
+      case ActionType.download:
+        this.handleDownload();
       default:
         break;
     }
@@ -500,6 +518,7 @@ export default class ViewerCore extends React.Component<ViewerProps, ViewerCoreS
           zoomable={this.props.zoomable}
           rotatable={this.props.rotatable}
           scalable={this.props.scalable}
+          downloadable={this.props.downloadable}
           changeable={true}
           />
           <ViewerNav

@@ -5,7 +5,7 @@
 
 ## Introduction
 
-Because i can`t comfortable use [viewerjs](https://github.com/fengyuanchen/viewerjs) in react, so i create react-viewer to replace it.
+fork form `https://github.com/infeng/react-viewer` add `downloadable` option to config
 
 ## Installation
 
@@ -59,6 +59,7 @@ class App extends React.Component<any, any> {
 | zoomable    | boolean      | true    | whether to show 'zoom' buttom | false |
 | rotatable   | boolean      | true    | whether to show 'rotate' button | false |
 | scalable    | boolean      | true    | whether to show 'scale' button | false |
+| downloadable | boolean | false | whether to download image
 | onMaskClick | (e) => void  |   -     | callback function when mask is clicked |
 
 ## Keyboard support

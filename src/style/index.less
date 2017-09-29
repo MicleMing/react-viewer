@@ -65,7 +65,7 @@
     overflow: hidden;
     width: 40px;
     height: 40px;
-    border-radius: 0 0 0 40px;   
+    border-radius: 0 0 0 40px;
     cursor: pointer;
     z-index: @zIndex + 10;
   }
@@ -170,7 +170,7 @@
     height: @viewer-list-item-height;
     margin-left: @viewer-list-item-img-marginLeft;
     opacity: .5;
-  }  
+  }
 
   &-list > li.active > img {
     opacity: 1;
@@ -210,7 +210,7 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     color: white;
-    font-size: 13px;    
+    font-size: 13px;
   }
 
   &-zoomIn:before {
@@ -223,23 +223,23 @@
 
   &-prev:before {
     content: '\ea38';
-  } 
+  }
 
   &-next:before {
     content: '\ea34';
-  } 
+  }
 
   &-close:before {
     content: '\ea0f';
-  } 
+  }
 
   &-rotateLeft:before {
     content: '\e967';
-  }  
+  }
 
   &-rotateRight:before {
     content: '\e968';
-  } 
+  }
 
   &-reset:before {
     content: '\e984';
@@ -247,11 +247,15 @@
 
   &-scaleX:before {
     content: '\ea60';
-  } 
+  }
 
   &-scaleY:before {
     content: '\ea5f';
-  }     
+  }
+
+  &-download::before {
+    content: '\f019'
+  }
 }
 
 .spin {
@@ -265,18 +269,18 @@
   transition: transform .3s cubic-bezier(.78,.14,.15,.86);
   transition: transform .3s cubic-bezier(.78,.14,.15,.86),-webkit-transform .3s cubic-bezier(.78,.14,.15,.86);
   font-size: 12px;
-  display: none;  
+  display: none;
 }
 .spin-spinning {
   opacity: 1;
   position: static;
-  display: inline-block;  
+  display: inline-block;
 }
 .spin-dot {
   position: relative;
   display: block;
   width: 20px;
-  height: 20px;  
+  height: 20px;
 }
 .spin-dot:after, .spin-dot:before {
   content: '';

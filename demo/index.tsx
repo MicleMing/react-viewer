@@ -127,6 +127,9 @@ class App extends React.Component<any, Partial<State>> {
           activeIndex={this.state.activeIndex}
           attribute={false}
           container={inline ? this.container : null}
+          scalable={false}
+          rotatable={false}
+          downloadable={true}
           />
         </div>
         <div className="footer">
