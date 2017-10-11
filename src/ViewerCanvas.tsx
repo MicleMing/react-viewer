@@ -1,5 +1,6 @@
 import * as React from 'react';
 import Loading from './Loading';
+import { ActionType } from './Icon';
 
 export interface ViewerCanvasProps {
   prefixCls: string;
@@ -19,6 +20,7 @@ export interface ViewerCanvasProps {
   loading: boolean;
   drag: boolean;
   onCanvasMouseDown: (e: React.MouseEvent<HTMLDivElement>) => void;
+  onAction: (type: ActionType) => void;
 }
 
 export interface ViewerCanvasState {
@@ -105,6 +107,10 @@ export default class ViewerCanvas extends React.Component<ViewerCanvasProps, Vie
     }
   }
 
+  handleAction(type: ActionType) {
+    this.props.onAction(type);
+  }
+
   bindEvent(remove?: boolean) {
     let funcName = 'addEventListener';
     if (remove) {
@@ -182,7 +188,15 @@ export default class ViewerCanvas extends React.Component<ViewerCanvasProps, Vie
       onMouseDown={this.handleCanvasMouseDown}
       style={style}
       >
+        <div
+          className="left"
+          onClick={() => this.handleAction(ActionType.prev)}
+        >pre</div>
         {imgNode}
+        <div
+          className="right"
+          onClick={() => this.handleAction(ActionType.next)}
+        >next</div>
       </div>
     );
   }

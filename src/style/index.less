@@ -50,6 +50,21 @@
     z-index: @zIndex;
   }
 
+  &-content {
+
+  }
+  &-list-preview {
+    position: fixed;
+    right: 0;
+    top:0;
+
+    height: 100%;
+    background: #1D1F21;
+    z-index: 9999;
+
+    padding: 24px 21px 24px 11px;
+
+  }
   &-btn {
     background-color: @btn-background-color;
   }
@@ -84,6 +99,27 @@
     bottom: 0;
     overflow: hidden;
     z-index: @zIndex + 5;
+
+    > .left {
+      position: absolute;
+      top: 50%;
+      left: 50px;
+      cursor: pointer;
+      width: 70px;
+      height: 20px;
+      background: #2db7f5;
+    }
+
+    > .right {
+      position: absolute;
+      top: 50%;
+      right: 260px;
+      cursor: pointer;
+      width: 70px;
+      height: 20px;
+      background: #2db7f5;
+    }
+
     > img {
       display: block;
       margin: 15px auto;
@@ -142,12 +178,12 @@
   }
 
   &-navbar {
-    overflow: hidden;
+    // overflow: hidden;
     background-color: @btn-background-color;
   }
 
-  @viewer-list-item-width: 30px;
-  @viewer-list-item-height: 50px;
+  @viewer-list-item-width: 104px;
+  @viewer-list-item-height: 60px;
   @viewer-list-item-img-width: @viewer-list-item-width + 30px;
   @viewer-list-item-img-marginLeft: -(@viewer-list-item-img-width - @viewer-list-item-width) /2;
 
@@ -157,9 +193,10 @@
   }
 
   &-list > li {
-    display: inline-block;
+    // display: inline-block;
     width: @viewer-list-item-width;
     height: @viewer-list-item-height;
+    margin-bottom: 16px;
     cursor: pointer;
     overflow: hidden;
     margin-right: 1px;

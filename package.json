@@ -13,7 +13,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/infeng/react-viewer.git"
+    "url": "git+https://github.com/MicleMing/react-viewer.git"
   },
   "keywords": [
     "react",
@@ -23,7 +23,7 @@
   "author": "infeng",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/infeng/react-viewer/issues"
+    "url": "https://github.com/MicleMing/react-viewer.git/issues"
   },
   "files": [
     "dist",

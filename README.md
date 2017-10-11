@@ -10,7 +10,7 @@ fork form `https://github.com/infeng/react-viewer` add `downloadable` option to 
 ## Installation
 
 ```bash
-npm install react-viewer --save
+npm install m-react-viewer --save
 ```
 
 ## Usage

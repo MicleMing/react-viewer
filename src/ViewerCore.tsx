@@ -86,7 +86,7 @@ export default class ViewerCore extends React.Component<ViewerProps, ViewerCoreS
   }
 
   setContainerWidthHeight() {
-    this.containerWidth = window.innerWidth;
+    this.containerWidth = window.innerWidth - 272;
     this.containerHeight = window.innerHeight;
     if (this.props.container) {
       this.containerWidth = this.props.container.offsetWidth;
@@ -481,51 +481,57 @@ export default class ViewerCore extends React.Component<ViewerProps, ViewerCoreS
       style={viewerStryle}
       >
         <div className={`${this.prefixCls}-mask`} style={{zIndex: zIndex}}></div>
-        <div
-        className={`${this.prefixCls}-close ${this.prefixCls}-btn`}
-        onClick={this.handleClose.bind(this)}
-        style={{zIndex: zIndex + 10}}
-        >
-          <Icon type={ActionType.close}/>
-        </div>
-        <ViewerCanvas
-        prefixCls={this.prefixCls}
-        imgSrc={activeImg.src}
-        visible={this.props.visible}
-        width={this.state.width}
-        height={this.state.height}
-        top={this.state.top}
-        left={this.state.left}
-        rotate={this.state.rotate}
-        onChangeImgState={this.handleChangeImgState}
-        onResize={this.handleResize}
-        onZoom={this.handleZoom}
-        zIndex={zIndex + 5}
-        scaleX={this.state.scaleX}
-        scaleY={this.state.scaleY}
-        loading={this.state.loading}
-        drag={this.props.drag}
-        onCanvasMouseDown={this.handleCanvasMouseDown}
-        />
-        <div className={`${this.prefixCls}-footer`} style={{zIndex: zIndex + 5}}>
-          <ViewerToolbar
-          prefixCls={this.prefixCls}
-          onAction={this.handleAction}
-          alt={activeImg.alt}
-          width={this.state.imageWidth}
-          height={this.state.imageHeight}
-          attribute={this.props.attribute}
-          zoomable={this.props.zoomable}
-          rotatable={this.props.rotatable}
-          scalable={this.props.scalable}
-          downloadable={this.props.downloadable}
-          changeable={true}
+        <div className={`${this.prefixCls}-content`}>
+          {/* <div
+            className={`${this.prefixCls}-close ${this.prefixCls}-btn`}
+            onClick={this.handleClose.bind(this)}
+            style={{zIndex: zIndex + 10}}
+          >
+            <Icon type={ActionType.close}/>
+          </div> */}
+          <ViewerCanvas
+            prefixCls={this.prefixCls}
+            imgSrc={activeImg.src}
+            visible={this.props.visible}
+            width={this.state.width}
+            height={this.state.height}
+            top={this.state.top}
+            left={this.state.left}
+            rotate={this.state.rotate}
+            onChangeImgState={this.handleChangeImgState}
+            onResize={this.handleResize}
+            onZoom={this.handleZoom}
+            zIndex={zIndex + 5}
+            scaleX={this.state.scaleX}
+            scaleY={this.state.scaleY}
+            loading={this.state.loading}
+            drag={this.props.drag}
+            onCanvasMouseDown={this.handleCanvasMouseDown}
+            onAction={this.handleAction}
           />
+          <div className={`${this.prefixCls}-footer`} style={{zIndex: zIndex + 5}}>
+            <ViewerToolbar
+              prefixCls={this.prefixCls}
+              onAction={this.handleAction}
+              alt={activeImg.alt}
+              width={this.state.imageWidth}
+              height={this.state.imageHeight}
+              attribute={this.props.attribute}
+              zoomable={this.props.zoomable}
+              rotatable={this.props.rotatable}
+              scalable={this.props.scalable}
+              downloadable={this.props.downloadable}
+              changeable={true}
+            />
+          </div>
+        </div>
+
+        <div className={`${this.prefixCls}-list-preview`}>
           <ViewerNav
-          prefixCls={this.prefixCls}
-          images={this.props.images}
-          activeIndex={this.state.activeIndex}
-          onChangeImg={this.handleChangeImg}
+            prefixCls={this.prefixCls}
+            images={this.props.images}
+            activeIndex={this.state.activeIndex}
+            onChangeImg={this.handleChangeImg}
           />
         </div>
       </div>
