@@ -4,7 +4,7 @@ import ViewerCanvas from './ViewerCanvas';
 import ViewerNav from './ViewerNav';
 import ViewerToolbar from './ViewerToolbar';
 import ViewerProps, { ImageDecorator } from './ViewerProps';
-import Icon, { ActionType } from './Icon';
+import { ActionType } from './Icon';
 
 function noop() {}
 
